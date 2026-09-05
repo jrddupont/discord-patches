@@ -1,0 +1,29 @@
+package app.discord.patches.banner
+
+import app.morphe.patcher.patch.ApkFileType
+import app.morphe.patcher.patch.AppTarget
+import app.morphe.patcher.patch.Compatibility
+import app.morphe.patcher.patch.SupportedAbi
+
+object DiscordConstants {
+    val COMPATIBILITY_DISCORD = Compatibility(
+        name = "Discord",
+        packageName = "com.discord",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x5865F2,
+        targets = listOf(
+            // QuestBar gate verified per version by Hermes disassembly.
+            // 345.x is Alpha-only so far; stables pin by version name
+            // (fat multi-arch bundles share one base versionCode each:
+            // 342016 and 343012 per APKMirror metadata).
+            AppTarget(
+                version = "345.2 - Alpha",
+                versionCodes = mapOf(
+                    SupportedAbi.ARM64_V8A to 345202,
+                ),
+            ),
+            AppTarget(version = "343.12 - Stable"),
+            AppTarget(version = "342.16 - Stable"),
+        ),
+    )
+}
