@@ -1,6 +1,14 @@
 # Changelog
 
-## v1.1.1 (unreleased)
+## v1.2.0
+
+- New patch: Pin app to built-in bundle — forces Discord to always run
+  the APK's Hermes bundle and ignore downloaded (OTA) updates. Without
+  it, an OTA silently undoes all Hermes patches (observed on device:
+  banner returned, composer gift never left). Official JS updates stop
+  arriving until the APK itself is updated.
+
+## v1.1.1
 
 - Fix: Hide gift button missed the visible composer gift (v1.1.0 only
   neutered the attach-sheet actions push). Now also forces the

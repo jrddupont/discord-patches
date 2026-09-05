@@ -9,9 +9,9 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.1](https://github.com/jrddupont/discord-patches/releases/tag/v1.1.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.2.0](https://github.com/jrddupont/discord-patches/releases/tag/v1.2.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
 <details open>
-<summary>📦 Discord&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 Discord&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -23,6 +23,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 |----------|----------------|-----------|
 | [Hide gift button](#hide-gift-button) | Hides the gift button in the chat message composer. |  |
 | [Hide quest promo banner](#hide-quest-promo-banner) | Hides the quest promo banner at the top of the server channel list. |  |
+| [Pin app to built-in bundle](#pin-app-to-built-in-bundle) | Forces Discord to always run the bundle inside the APK and ignore downloaded (OTA) updates, which would otherwise silently undo the other patches. Turn this off (or update the APK) to receive official updates. |  |
 
 </details>
 

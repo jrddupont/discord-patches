@@ -6,3 +6,4 @@ gson = "2.14.0"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+smali-dexlib2 = { module = "com.github.MorpheApp.smali:smali-dexlib2", version.ref = "smali" }

@@ -2,8 +2,8 @@ group = "app.discord"
 
 patches {
     about {
-        name = "Discord Banner Patches"
-        description = "Hides the quest promo banner in Discord"
+        name = "Discord Patches"
+        description = "Hides the quest promo banner and gift button in Discord, pinned to the built-in bundle"
         source = "local"
         author = "jrddu"
         contact = "https://github.com/jrddupont"
@@ -18,6 +18,8 @@ val patchListGeneratorClasspath = configurations.create("patchListGeneratorClass
 
 dependencies {
     compileOnly(libs.gson)
+    // dexlib2 for the bytecode patch; provided at patch runtime by the host.
+    compileOnly(libs.smali.dexlib2)
     patchListGeneratorClasspath(libs.gson)
 }
 
