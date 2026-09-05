@@ -6,8 +6,8 @@ patches {
         description = "Hides the quest promo banner in Discord"
         source = "local"
         author = "jrddu"
-        contact = "na"
-        website = "na"
+        contact = "https://github.com/jrddupont"
+        website = "https://github.com/jrddupont/discord-patches"
         license = "GPLv3"
     }
 }

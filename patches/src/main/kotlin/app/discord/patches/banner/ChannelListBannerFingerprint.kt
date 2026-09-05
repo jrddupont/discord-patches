@@ -2,27 +2,30 @@ package app.discord.patches.banner
 
 /**
  * The quest promo ("QuestBar") is NOT native UI and has NO smali method to
- * fingerprint. Confirmed by decoding base.apk of Discord 345.2 Alpha,
- * 343.12 Stable, and 342.16 Stable:
+ * fingerprint. Confirmed by decoding base.apk of Discord 343.12 Stable
+ * and 342.16 Stable:
  *
  * - res/layout holds only AppCompat (abc_*) layouts; no banner layout.
  * - Native ids contain only generic `banner` and `nitroLogoBanner`.
  * - The channel list is React Native (modules/channel_list_v2). The promo
  *   is the QuestBar gate + creative, inside assets/index.android.bundle
- *   (Hermes bytecode v98 in all three builds).
+ *   (Hermes bytecode v98 in both builds).
  *
  * Gate functions (all: getDeliveredQuest + null/userStatus checks +
  * isDismissed + AdCreativeType QUEST/BOUNTY dispatch +
  * QuestContent.QUEST_BAR_MOBILE, no try/catch):
  *
- * - 345.2 Alpha: fn 61347 (offset 32916900, 477 bytes, frame 83).
  * - 342.16 Stable: fn 59152 (offset 32358749, 387 bytes, frame 251).
  * - 343.12 Stable: fn 59938 (offset 32531367, 387 bytes, frame 49).
  *
- * The creative renderer (Alpha fn 61391, default export of
+ * The creative renderer (default export of
  * QuestDockContextMenuActionSheet.tsx, renders the bar plus the Hide-This
  * ActionSheet) was analyzed but is NOT the patch target: neutering the
  * gate kills the banner earlier and is consistent across versions.
+ *
+ * Stable-only: the 345.2 Alpha gate (fn 61347, 477 bytes) was verified
+ * during research but is intentionally unsupported — its anchor was
+ * removed with the Alpha target.
  *
  * This file is notes-only; there is no Fingerprint to declare here.
  */
