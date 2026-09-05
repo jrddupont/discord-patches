@@ -1,48 +1,48 @@
 {
-  "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0",
-  "patches": [
+ "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
+ "version": "1.0.1",
+ "patches": [
+  {
+   "name": "Hide quest promo banner",
+   "description": "Hides the quest promo banner at the top of the server channel list.",
+   "default": true,
+   "dependencies": [],
+   "compatiblePackages": [
     {
-      "name": "Hide quest promo banner",
-      "description": "Hides the quest promo banner at the top of the server channel list.",
-      "default": true,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.discord",
-          "name": "Discord",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#5865F2",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "345.2 - Alpha",
-              "versionCodes": {
-                "ARM64_V8A": 345202
-              },
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "343.12 - Stable",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": "342.16 - Stable",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
+     "packageName": "com.discord",
+     "name": "Discord",
+     "description": null,
+     "apkFileType": "APKM",
+     "appIconColor": "#5865F2",
+     "signatures": null,
+     "targets": [
+      {
+       "version": "345.2 - Alpha",
+       "versionCodes": {
+        "ARM64_V8A": 345202
+       },
+       "isExperimental": false,
+       "minSdk": null,
+       "description": null
+      },
+      {
+       "version": "343.12 - Stable",
+       "versionCodes": null,
+       "isExperimental": false,
+       "minSdk": null,
+       "description": null
+      },
+      {
+       "version": "342.16 - Stable",
+       "versionCodes": null,
+       "isExperimental": false,
+       "minSdk": null,
+       "description": null
+      }
+     ]
     }
-  ]
+   ],
+   "options": []
+  }
+ ]
 }
