@@ -17,6 +17,20 @@ object DiscordConstants {
             // per APKMirror metadata).
             AppTarget(version = "343.12 - Stable"),
             AppTarget(version = "342.16 - Stable"),
+            AppTarget(version = "341.13 - Stable"),
+        ),
+    )
+
+    // Composer (gift button) targets: same three stables.
+    val COMPATIBILITY_DISCORD_COMPOSER = Compatibility(
+        name = "Discord",
+        packageName = "com.discord",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x5865F2,
+        targets = listOf(
+            AppTarget(version = "343.12 - Stable"),
+            AppTarget(version = "342.16 - Stable"),
+            AppTarget(version = "341.13 - Stable"),
         ),
     )
 }
