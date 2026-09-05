@@ -24,9 +24,22 @@ package app.discord.patches.composer
  *   30703459.
  *
  * The shouldShowGiftButton prop itself is read in two functions per
- * version (composer + its parent); only the composer's gift-push Call2 is
- * patched. Neutering the push rather than the flag preserves the stock
- * gift-XOR-thread fallback and every other action button.
+ * version: the actions row (gift-push Call2 neutered; neutering the push
+ * rather than the flag preserves the stock gift-XOR-thread fallback) and
+ * ChatInputRightActions, the visible [gift?, emoji] composer row, where
+ * the prop load itself is forced to false (verified single write + single
+ * test per function; the false path renders emoji alone, stock behavior).
+ *
+ * RightActions functions (all: channel/keyboardType/showKeyboardIcon/
+ * shouldShowGiftButton/onPressAction/onPressExpression + TransitionItem
+ * gift child vs EXPRESSION button, no try/catch):
+ *
+ * - 343.12 Stable: fn 52671 (offset 31111162, 505 bytes, 107 instrs).
+ * - 342.16 Stable: fn 52380 (offset 30994107, 505 bytes, 107 instrs).
+ * - 341.13 Stable: fn 52020 (offset 30845510, 501 bytes, 107 instrs).
+ *
+ * v1.1.0 only patched the actions row and the composer gift survived;
+ * v1.1.1 adds the RightActions surface.
  *
  * This file is notes-only; there is no Fingerprint to declare here.
  */

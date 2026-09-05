@@ -1,6 +1,14 @@
 # Changelog
 
-## v1.1.0 (unreleased)
+## v1.1.1 (unreleased)
+
+- Fix: Hide gift button missed the visible composer gift (v1.1.0 only
+  neutered the attach-sheet actions push). Now also forces the
+  shouldShowGiftButton load to false in ChatInputRightActions, which
+  renders the visible [gift?, emoji] row — gift skipped, emoji kept.
+  All three stables, decoder-verified single write + single test.
+
+## v1.1.0
 
 - New patch: Hide gift button — removes the gift button from the chat
   message composer (343.12 / 342.16 / 341.13 Stable). Skips the gift
