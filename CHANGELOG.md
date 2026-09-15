@@ -11,6 +11,8 @@
   Pin-to-builtin-bundle needs no change (DCDReactNativeHost.
   getJSBundleFile() still present in 344).
 
+## v1.2.0
+
 - New patch: Pin app to built-in bundle — forces Discord to always run
   the APK's Hermes bundle and ignore downloaded (OTA) updates. Without
   it, an OTA silently undoes all Hermes patches (observed on device:
