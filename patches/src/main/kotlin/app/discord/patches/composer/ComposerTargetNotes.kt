@@ -53,6 +53,13 @@ package app.discord.patches.composer
  * v1.1.0 only patched the actions row and the composer gift survived;
  * v1.1.1 adds the RightActions surface.
  *
+ * v1.5.0+: the patch is self-locating (no bar anchors). It finds
+ * ChatInputRightActions as the shouldShowGiftButton reader with the
+ * TransitionItem + EXPRESSION shape, validates write-once/test-once,
+ * and forces the flag false. The sheet push keeps legacy anchors
+ * (frozen facts about old bundles) with skip-or-fail reasoning.
+ * History above is the proof set, not config.
+ *
  * This file is notes-only; there is no Fingerprint to declare here.
  */
 object ComposerTargetNotes {

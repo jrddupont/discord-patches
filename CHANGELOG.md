@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.5.0
+
+- Self-locating patches: the QuestBar gate and gift-bar flag are now
+  discovered in the bundle at patch time (string co-occurrence + head
+  shape + flag write/test validation) instead of baked-in byte anchors,
+  and compat is a NULL version (any com.discord build). New Discord
+  versions need no patch update as long as discovery holds; anything
+  unrecognized fails loudly with the update point named. Only the
+  attach-sheet push keeps legacy anchors (frozen facts about old
+  bundles) with skip-or-fail reasoning. Proven: discovery reproduces
+  every v1.4.0 site exactly on all five known bundles, CLI bytes
+  identical.
+
 ## v1.4.0
 
 - New support: 346.13 Stable (all three patches). QuestBar gate
