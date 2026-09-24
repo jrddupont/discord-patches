@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.4.0
+
+- New support: 346.13 Stable (all three patches). QuestBar gate
+  grew eligibility hooks and a CreateFunctionEnvironment in its head
+  (fn 62203, own 17-byte anchor; same 6-byte return-null edit over
+  GPE + CFE); gift-bar flag in ChatInputRightActions (fn 56000, own
+  anchor); the attach-sheet still has no gift entry in 346 (actions
+  row fn 55293, only dead NITRO_GIFT renderer refs), so the sheet-push
+  site is skipped there as in 344. Anchor spec extended to 11 checks,
+  ALL OK; patch simulation shows exact diffs, no strays.
+  Pin-to-builtin-bundle needs no change (DCDReactNativeHost.
+  getJSBundleFile() still present in 346).
+
 ## v1.3.0
 
 - New support: 344.13 Stable (all three patches). QuestBar gate

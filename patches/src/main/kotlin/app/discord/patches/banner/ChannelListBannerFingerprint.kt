@@ -15,6 +15,10 @@ package app.discord.patches.banner
  * isDismissed + AdCreativeType QUEST/BOUNTY dispatch +
  * QuestContent.QUEST_BAR_MOBILE, no try/catch):
  *
+ * - 346.13 Stable: fn 62203 (offset 33116380, 535 bytes, frame 198).
+ *   Same checks plus new eligibility hooks (useIsQuestExpired,
+ *   getIsEligibleForQuests, getDeliveredAdCreativeId); head gained a
+ *   CreateFunctionEnvironment, so the edit covers GPE + CFE.
  * - 344.13 Stable: fn 60429 (offset 32664515, 477 bytes, frame 79).
  *   Same shape as the 342/343 gate with shifted registers.
  * - 342.16 Stable: fn 59152 (offset 32358749, 387 bytes, frame 251).

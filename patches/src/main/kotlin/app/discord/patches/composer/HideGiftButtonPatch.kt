@@ -26,6 +26,9 @@ import app.morphe.patcher.patch.resourcePatch
  * Target analysis (Hermes bytecode v98 in all four builds):
  *
  * RightActions (ChatInputRightActions, flag load @ fn offset 30):
+ * - 346.13 Stable: fn 56000 (offset 31777206, 505 bytes, 107 instrs).
+ *   Same shape as 344 (flag register reused as scratch after its single
+ *   test; load-then-test still fully determines the gift branch).
  * - 344.13 Stable: fn 53139 (offset 31241714, 505 bytes, 107 instrs).
  *   Flag register is reused as scratch after its single test, so the
  *   load-then-test still fully determines the gift branch.
@@ -42,6 +45,9 @@ import app.morphe.patcher.patch.resourcePatch
  *   gift entry (only a dead NITRO_GIFT renderer branch remains in
  *   fn 89752), so site 2 is skipped there — the bar flag alone hides
  *   the gift.
+ * - 346.13 Stable: NO gift push either. Actions row is fn 55293 with no
+ *   gift refs at all; only renderer/enum NITRO_GIFT refs remain
+ *   (fn 93533 et al). Site 2 skipped the same way.
  *
  * Each site tries its anchors and applies the one found exactly once;
  * anything else fails loudly so a Discord codegen change can never
@@ -72,15 +78,18 @@ val hideGiftButtonPatch = resourcePatch(
                 b("45 10 05 03 36 85 45 13 05 04 83 79 37 04 01 13"),
                 // 344.13 RightActions (fn 53139).
                 b("45 10 05 03 C8 74 45 13 05 04 70 8E 37 04 01 13"),
+                // 346.13 RightActions (fn 56000).
+                b("45 10 05 03 AB 36 45 13 05 04 B7 8E 37 04 01 13"),
             ),
             label = "Gift bar flag",
         )
 
         // Site 2: actions row — skip the gift actions.push().
-        // 344.13 has no gift push (sheet rebuilt without a gift entry),
-        // so when site 1 matched the 344 anchor (index 3) and no sheet
-        // anchor hits, there is nothing to neuter. Any other zero-match
-        // case still fails loudly below.
+        // 344.13 and 346.13 have no gift push (sheet rebuilt without a
+        // gift entry), so when site 1 matched one of those anchors
+        // (index 3 or 4) and no sheet anchor hits, there is nothing to
+        // neuter. Any other zero-match case still fails loudly below.
+        val sheetlessBarAnchors = setOf(3, 4)
         val sheetAnchors = listOf(
             // 342.16 / 341.13 gift push (identical codegen).
             b("6E 0D 0F 0C 0D AE 20 44 0F 0C 21 C8 02 0D AA 00"),
@@ -89,7 +98,7 @@ val hideGiftButtonPatch = resourcePatch(
         )
         val sheetHits = sheetAnchors.map { it to findAll(bytes, it) }
             .filter { (_, hits) -> hits.isNotEmpty() }
-        if (!(sheetHits.isEmpty() && barAnchor == 3)) {
+        if (!(sheetHits.isEmpty() && barAnchor in sheetlessBarAnchors)) {
             applyOnce(
                 bytes,
                 replacement = b("10 0D 0D 96 0D"),

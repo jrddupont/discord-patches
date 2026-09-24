@@ -34,6 +34,11 @@ package app.discord.patches.composer
  * shouldShowGiftButton/onPressAction/onPressExpression + TransitionItem
  * gift child vs EXPRESSION button, no try/catch):
  *
+ * - 346.13 Stable: fn 56000 (offset 31777206, 505 bytes, 107 instrs).
+ *   Flag load @ fn offset 30; flag register reused as scratch after its
+ *   single JmpFalse test (same as 344). Actions row is fn 55293 with NO
+ *   gift entry — only renderer/enum NITRO_GIFT refs (fn 93533 et al) —
+ *   so the sheet push site is skipped there too.
  * - 344.13 Stable: fn 53139 (offset 31241714, 505 bytes, 107 instrs).
  *   Flag load @ fn offset 30; the flag register is reused as scratch
  *   after its single JmpFalse test, so forcing it false still takes the
