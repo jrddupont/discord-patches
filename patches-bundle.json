@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-09-24T00:50:52",
+  "created_at": "2026-09-24T01:02:45",
   "description": "Hides the Discord quest promo banner (QuestBar) and the gift button in the chat composer, pinned to the built-in bundle.",
   "download_url": "https://github.com/jrddupont/discord-patches/releases/download/v1.4.0/patches-1.4.0.mpp",
   "signature_download_url": "",
